@@ -2,7 +2,8 @@
 Method\_Name
 ================
 
-A Ruby gem.
+A Ruby gem to turn strings into method names for 
+your metaprogramming needs.
 
 Installation
 ------------
@@ -14,7 +15,9 @@ Usage
 
     require "Method_Name"
     
-    Method_Name
+    Method_Name? "file"          # -> true
+    Method_Name? "file.sh"       # -> false
+    Method_Name " dir/file.sh "  # -> "file_sh"
 
 
 Run Tests
@@ -25,9 +28,5 @@ Run Tests
     bundle update
     bundle exec bacon spec/main.rb
 
-"I hate writing."
------------------------------
 
-If you know of existing software that makes the above redundant,
-please tell me. The last thing I want to do is maintain code.
 
