@@ -1,8 +1,9 @@
 require 'Method_Name/version'
 
-def Method_Name? name
-  
+def Method_Name? raw_name
+  name = raw_name.to_s
   return false if name[' ']
+  return false if name.to_s.strip.empty?
   return true unless name[Method_Name::INVALID_REGEXP]
   
   begin
@@ -24,8 +25,11 @@ end # === def Method_Name
 
 def Method_Name name
   
-  File.basename(name.strip.downcase)
+  new_name = File.basename(name.strip.downcase)
   .gsub( %r!#{Method_Name::INVALID_REGEXP}+!, '_' )
+
+  return nil unless Method_Name?(new_name)
+  new_name
   
 end # === def Method_Name
 

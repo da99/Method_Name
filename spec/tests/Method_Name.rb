@@ -24,6 +24,10 @@ describe "Method_Name?" do
   it "returns false for: $? " do
     Method_Name?("$?").should == false
   end
+
+  it "returns false for: ''" do
+    Method_Name?('').should == false
+  end
   
 end # === Method_Name?
 
@@ -39,6 +43,10 @@ describe "Method_Name" do
 
   it "replaces consecutive invalid characters with underscore: a--b--c" do
     Method_Name('a--b--c').should == 'a_b_c'
+  end
+
+  it "returns nil if a valid method name can not be extracted" do
+    Method_Name('').should == nil
   end
   
 end # === Method_Name
