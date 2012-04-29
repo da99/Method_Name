@@ -1,6 +1,10 @@
 
 describe "Method_Name?" do
   
+  it "accepts a symbol as a valid argument" do
+    Method_Name?(:<<).should == true
+  end
+
   it "returns true if string only has: a-z A-Z 0-9 \_" do
     Method_Name?('a_z_0_9').should == true
   end
